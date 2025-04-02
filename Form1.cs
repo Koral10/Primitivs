@@ -1,45 +1,9 @@
 namespace Test4
 {
-    public abstract class Primitive
-    {
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected Point position;
-        protected int size;
-        protected Brush brush = Brushes.Yellow;
-        protected Pen outlinePen = new Pen(Color.Black, 2);
-        public Point Position
-        {
-            get { return position; }
-            set { position = value; }
-        }
-        public Primitive(int initialSize)
-        {
-            size = initialSize;
-            position = new Point(0, 0);
-        }
-
-        public void SetPosition(Point newPosition)
-        {
-            position = newPosition;
-        }
-
-        public void SetSize(int newSize)
-        {
-            if (newSize < 300)
-                size = Math.Max(10, newSize);
-        }
-
-        public abstract void Draw(Graphics graphics);
-    }
-
     public partial class Form1 : Form
     {
         private Primitive currentPrimitive;
-        private string selectedPrimitive = " вадоат"; 
+        private string selectedPrimitive = " вадрат"; 
         private int size = 50; 
         private bool isDragging = false; 
         private Point lastMousePosition;
@@ -53,10 +17,13 @@ namespace Test4
             this.MouseUp += Form1_MouseUp;
             this.Paint += Form1_Paint;
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
+        }
         private void InitializeComboBox()
         {
-            ComboBoxPrimitives.Items.Add(" вадоат");
+            ComboBoxPrimitives.Items.Add(" вадрат");
             ComboBoxPrimitives.Items.Add("“реугольник");
             ComboBoxPrimitives.Items.Add(" руг");
             ComboBoxPrimitives.SelectedIndex = 0;
@@ -75,7 +42,7 @@ namespace Test4
         {
             switch (selectedPrimitive)
             {
-                case " вадоат":
+                case " вадрат":
                     currentPrimitive = new RectanglePrimitive(size);
                     break;
 
